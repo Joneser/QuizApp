@@ -1,0 +1,14 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<h3 class="question-title" ng-bind="questionIndex + 1 + '. ' + currentQuestion.question"></h3>
+<div class="answer-container">
+	
+	<div class="answer-option" ng-repeat="answer in currentQuestion.answers">
+		<input type="radio" name="answer" ng-model="selectedAnswer.value" value="{{answer}}">
+		<label ng-bind="answer"></label>
+	</div>
+	
+	<button class="continue-button" ng-click="nextQuestion()" ng-bind="buttonText" ng-disabled="selectedAnswer.value === ''">
+		
+	</button>
+</div>

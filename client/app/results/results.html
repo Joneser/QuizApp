@@ -1,0 +1,25 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<h1 class="result-header" ng-bind="'You scored ' + percentCorrect + '%'"></h1>
+
+<div class="result-container" ng-repeat="answer in results.answers track by $index">
+	
+	<h3 class="question-title" ng-bind-html="$index + 1 + '. ' + answer.question"></h3>
+	<div class="question-container" ng-class="{wrong: answer.userAnswer !== answer.correctAnswer, correct: answer.userAnswer === answer.correctAnswer}">
+		
+		<div ng-if="answer.userAnswer !== answer.correctAnswer">
+			<div class='answer-title'>You answered Incorrect</div>
+			<label class="answer" ng-bind="answer.userAnswer"></label>
+					
+			<div class='answer-title'>Correct Answer</div>
+			<label class="answer" ng-bind="answer.correctAnswer"></label>
+		</div>
+		
+		<div ng-if="answer.userAnswer === answer.correctAnswer">
+			
+			<div class='answer-title'>Correct!</div>
+			<label class="answer" ng-bind="answer.userAnswer"></label>
+		</div>
+
+	<div>
+</div>
